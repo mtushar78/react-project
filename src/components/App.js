@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="container">
-      <AddContact name = "class Tushar"/>
+      <AddContact />
       <FuncComp name="functional Tushar"/>
     </div>
 

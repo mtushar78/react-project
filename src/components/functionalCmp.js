@@ -1,10 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
 
 // this way is called  "without destructuring"
 const FuncComp = (props)=>{
+    const [count, setCount] = useState(0);
+
     return(
         <div>
-            Hi. I'm a functional Component!! my name is <b>{props.name}</b>
+           <p> Hi. I'm a functional Component!! my name is <b>{props.name}</b></p>
+           <button onClick={()=>{setCount(count+1);}}>
+               {count}
+           </button>
         </div>
     );
 }
