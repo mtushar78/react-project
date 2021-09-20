@@ -1,23 +1,24 @@
 import './App.css';
 import React from 'react';
 import AddContact from './AddContact';
+import FuncComp from './functionalCmp';
 
 function App() {
-  const contactData =[
+  const contactData = [
     {
-      id:1,
+      id: 1,
       name: 'Tushar',
       email: 'mtushar78@gmail.com',
       address: 'Senpara Mirpur'
     },
     {
-      id:2,
+      id: 2,
       name: 'Tuhin',
       email: 'Tuhin@gmail.com',
       address: 'Senpara Mirpur'
     },
     {
-      id:3,
+      id: 3,
       name: 'Kamrul',
       email: 'kamrul@gmail.com',
       address: 'Senpara Mirpur'
@@ -26,9 +27,8 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
-      <AddContact />
-      <ContactList contactData = {contactData}/>
+      <AddContact name = "class Tushar"/>
+      <FuncComp name="functional Tushar"/>
     </div>
 
 
