@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
+
+import Clock from './components/Clock';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Clock locale="bn-BN"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
