@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import Clock from './components/Clock';
+import Form from './components/Form';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Clock locale="bn-BN"/>
+    <Form />
   </React.StrictMode>,
   document.getElementById('root')
 );

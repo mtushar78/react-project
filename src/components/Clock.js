@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button" ;
 
 class Clock extends React.Component{
 
@@ -11,7 +12,10 @@ class Clock extends React.Component{
     // }
     //as we dont need props to initate any value to state so we simply follow below process
 
-    state = {date: new Date()}
+    state = {
+        date: new Date(),
+        locale: 'bn-BD'
+    }
 
     componentDidMount(){
        this.componentInterval =  setInterval(() => {
@@ -26,16 +30,44 @@ class Clock extends React.Component{
     componentWillUnmount(){
         clearInterval(this.componentInterval);
     }
-    
+    handleClick =  () => {
+        if(this.state.locale === 'bn-BD'){
+            this.setState({
+                locale: 'en-US'
+            })
+        }else{
+            this.setState({
+                locale: 'bn-BD'
+            })
+        }
+       
+    }
+    handleClick2(){
+        if(this.state.locale === 'bn-BD'){
+            this.setState({
+                locale: 'en-US'
+            })
+        }else{
+            this.setState({
+                locale: 'bn-BD'
+            })
+        }
+    }
 
 
     render(){
+        const {locale, date} = this.state;
         return(
+            <>
             <h1 className="heading container center-top">
                 <span className="text">
-                    {this.state.date.toLocaleTimeString(this.props.locale)}
+                    {date.toLocaleTimeString(locale)}
                 </span>
             </h1>
+            {/* <button type = "button" onClick={this.handleClick2.bind(this)}>Click Here</button>        -> this is one way [normal function way]*/}
+            {/* this way is by a callBack function */}
+            <Button change = {this.handleClick} locale= {this.state.locale}></Button>
+            </>
         );
     }
 }
