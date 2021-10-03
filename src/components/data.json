@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "fname":"Tushar",
+        "lname":"Hasan",
+        "address":"mirpur"
+    },
+    {
+        "id":2,
+        "fname":"Tushafsadfr",
+        "lname":"Hasasadfn",
+        "address":"mirfsadfpur"
+    },
+    {
+        "id":3,
+        "fname":"Tusdfshar",
+        "lname":"Hassfaan",
+        "address":"mifdfrpur"
+    },
+    {
+        "id":4,
+        "fname":"Tushfasdar",
+        "lname":"Hasasfan",
+        "address":"mirfdsapur"
+    }
+]

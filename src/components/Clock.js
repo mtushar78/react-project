@@ -58,8 +58,8 @@ class Clock extends React.Component{
     render(){
         const {locale, date} = this.state;
         return(
-            <>
-            <h1 className="heading container center-top">
+            <div className="container">
+            <h1 className="heading center-top">
                 <span className="text">
                     {date.toLocaleTimeString(locale)}
                 </span>
@@ -67,7 +67,7 @@ class Clock extends React.Component{
             {/* <button type = "button" onClick={this.handleClick2.bind(this)}>Click Here</button>        -> this is one way [normal function way]*/}
             {/* this way is by a callBack function */}
             <Button change = {this.handleClick} locale= {this.state.locale}></Button>
-            </>
+            </div>
         );
     }
 }

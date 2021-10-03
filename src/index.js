@@ -4,12 +4,14 @@ import './index.css';
 
 import Clock from './components/Clock';
 import Form from './components/Form';
+// import ListForm from './components/ListForm'
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Clock locale="bn-BN"/>
     <Form />
+    {/* <ListForm/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
