@@ -1,7 +1,7 @@
 import React from 'react';
 import ListForm from './ListForm';
 import { useState } from 'react';
-import {nanoid} from 'nanoid';
+// import {nanoid} from 'nanoid';
 
 function Form() {
 
@@ -9,14 +9,15 @@ function Form() {
         {
             fname: '',
             lname: '',
+            count: '',
             isSelected: false
         }
     );
     const [data, setData] = useState([
-        { fname: 'Tushar', lname: 'Hasan', isSelected: true },
-        { fname: 'Tuhin', lname: 'Hassan', isSelected: true },
-        { fname: 'Toufiq', lname: 'Huda', isSelected: false },
-        { fname: 'Shakir', lname: 'Khan', isSelected: true },
+        { fname: 'Tushar', lname: 'Hasan', count:2, isSelected: true },
+        { fname: 'Tuhin', lname: 'Hassan',count:1, isSelected: true },
+        { fname: 'Toufiq', lname: 'Huda',count:3, isSelected: false },
+        { fname: 'Shakir', lname: 'Khan',count:4, isSelected: true },
     ]);
 
 
@@ -37,15 +38,21 @@ function Form() {
 
         event.preventDefault();
     }
+    const onPlusMinusClicked = (event,index) => {
+        // console.log(event);
+        const data1 = [...data];
+        if(event.target.getAttribute('name') === "minus"){
+            console.log("minus Clicked: " + index);
+            data1[index].count--;
+        }else {
+            console.log("plus clicked "+ index);
+            data1[index].count++;
+        }
+        setData(data1);
+    }
 
 
     return (
-        // <form onSubmit={this.handleSubmit}>
-        //     <input value = {this.state.values} onChange = {this.handleChange} name = "inputVal"/>
-        //     <input value = {this.state.values} onChange = {this.handleChange} name = "inputVal2"/>
-        //     <input value = {this.state.values} onChange = {this.handleChange} name = "inputVal3"/>
-        //     <button type = "submit">Submit</button>
-        // </form>
         <div>
             <div className="container mt-5" onSubmit={handleSubmit}>
                 <form className="row g-3">
@@ -58,9 +65,13 @@ function Form() {
                         <input type="text" className="form-control" id="lastName" name="lname" onChange={handleChange} required />
                     </div>
                     <div className="col-6">
+                        <label for="count" className="form-label">Count</label>
+                        <input type="number" className="form-control" id="count" name="count" onChange={handleChange} required />
+                    </div>
+                    <div className="col-6">
                         <label for="inputAddress" className="form-label" >Is Selected?</label>
                         <select className="form-select" onChange={handleChange} name = "isSelected">
-                            <option value={true} selected>Selected</option>
+                            <option value={true}>Selected</option>
                             <option value={false}>Not Selected</option>
                         </select>
                     </div>
@@ -69,7 +80,7 @@ function Form() {
                         <button type="submit" className="btn btn-primary">Insert</button>
                     </div>
                 </form>
-                <ListForm contact = {data}/>
+                <ListForm contact = {data} func={onPlusMinusClicked}/>
             </div>
 
             {/* <table className="table table-striped table-hover container">

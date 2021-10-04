@@ -1,19 +1,31 @@
-import React,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import './funcComp.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/dist/jquery.min.js';
+//Datatable Modules
+import "datatables.net-dt/js/dataTables.dataTables";
+import "datatables.net-dt/css/jquery.dataTables.min.css";
+import $ from 'jquery'; 
+
 
 // this way is called  "without destructuring"
-const FuncComp = (props)=>{
+const FuncComp = (props) => {
     const [count, setCount] = useState('a');
-    useEffect(()=>{
+    useEffect(() => {
         document.title = `${count}`;
     });
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
 
-    return(
+    
+
+    return (
         <div>
-           <p> Hi. I'm a functional Component!! my name is <b>{props.name}</b></p>
-           <button onClick={()=>{setCount(count+'a');}}>
-               {count}
-           </button>
+            
         </div>
+        
     );
 }
 
@@ -21,5 +33,5 @@ const FuncComp = (props)=>{
 // const FuncComp = ({ name }) => {
 //     return <h1>Hello, { name }!</h1>
 //   }
-  
+
 export default FuncComp;
